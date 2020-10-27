@@ -65,6 +65,8 @@ export default function Login() {
     const handleChangeAccessCode = event => {
         setAccessCode({ value: event.target.value, error: ""});
     }
+
+    // Validate input Phone number and send it to the server
     const handleSubmitPhoneNumber = async (event) => {
             event.preventDefault();
             const phoneNumberError = phoneValidator(phoneNumber.value);
@@ -73,13 +75,9 @@ export default function Login() {
                 setPhoneNumber({...phoneNumber, error: phoneNumberError});
                 return;
             }
-            // var temp = phoneNumber.value
-            // const data = await http.post(apiGetAccessCode, { temp });
-            // console.log(data);
             
             auth.getAccessCode(phoneNumber.value)
                 .then((data) => {
-                    // console.log(data);
                     var token = auth.getCurrentUser();
                     console.log("Cur:", token);
                     setOpen(true);
@@ -89,6 +87,7 @@ export default function Login() {
                 });
     }
 
+    // resend access code to a the phone number
     const resendAccessCode_Handler = async (event) => {
         event.preventDefault();
         auth.getAccessCode(phoneNumber.value)
@@ -99,6 +98,8 @@ export default function Login() {
                 console.error("Error writing document: ", error);
             });
     }
+
+    // Get Access code entered by the user and send it to the server
     const handleSubmitAccessCode = (event) => {
         event.preventDefault();
         setNotification("");

@@ -64,7 +64,7 @@ export default function Album() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              You've successully login
+              You've successfully logged in
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
                 The harder you work for something, the greater you'll feel when you achieve it.
