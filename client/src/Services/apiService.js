@@ -36,7 +36,6 @@ export function logout() {
     localStorage.removeItem(tokenKey);
 }
 
-
 export default {
     getAccessCode,
     validateAccessCode,
