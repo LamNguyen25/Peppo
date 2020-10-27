@@ -31,7 +31,6 @@ function App() {
         <div className='container'>
           <Switch>
             <Route exact path="/" component={login}/>
-            {/* <Route exact paht="/home" component={home}/> */}
             <ProtectedRoute path="/home" render={() => <Home/>} />
           </Switch>
         </div>
