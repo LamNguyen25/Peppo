@@ -13,12 +13,9 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Redirect } from 'react-router-dom';
 import auth from '../Services/apiService';
 import { phoneValidator } from '../validation/PhoneValidation';
-import http from '../Services/httpService'
-import { apiUrl } from "../config.json";
-const apiGetAccessCode  = apiUrl + "/login/createNewAccessCode";
+
 
 
 const useStyles = makeStyles((theme) => ({

@@ -20,9 +20,6 @@ import auth from '../Services/apiService';
 const useStyles = makeStyles((theme) => ({
     navbar: {
         flexGrow: 1,
-      },
-    icon: {
-        marginRight: theme.spacing(2),
     },
     heroContent: {
         backgroundColor: theme.palette.background.paper,

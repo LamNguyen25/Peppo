@@ -30,13 +30,16 @@ router.post('/createNewAccessCode', async (req, res) => {
             from: config.twilioPhoneNumber,
             to: phoneNumber,
             body: randomAccessCode.toString()
-          }).then((message) => console.log(message.sid));
+          }).then((message) => console.log(message.sid))
+          .catch((err) => {
+            console.log(err)
+          })
           
         const token = jwt.sign(
             { phoneNumber: phoneNumber },
             'RANDOM_TOKEN_SECRET',
             { expiresIn: '24h' });
-          res.status(200).json({
+          return res.status(200).json({
             token: token
           });
 
@@ -44,7 +47,7 @@ router.post('/createNewAccessCode', async (req, res) => {
     })
     .catch((err) => {
         console.log(err);
-        res.status(500).json({ general: "Something went wrong, please try again" });
+        return res.status(500).json({ general: "Something went wrong, please try again" });
     })
 })
 
@@ -57,14 +60,14 @@ router.post('/ValidateAccessCode', async (req, res) => {
         .then((doc) =>  {
             console.log(Object.values(doc.data())[0]);
             var storedAccessCode = Object.values(doc.data())[0];
-            if(storedAccessCode == req.body.accessCode) { // Compare two Access codes
+            if(storedAccessCode === req.body.accessCode) { // Compare two Access codes
                 db.collection("PhoneNumbers")
                 .doc(phoneNumber)
                 .update({ accessCode: ""})
                 .then(() => {
                     return res.json({ message: "true" });
                 })
-                .catch((err) => {
+                .catch(() => {
                     return res.json({message: "false"})
                 })
                 
@@ -72,6 +75,7 @@ router.post('/ValidateAccessCode', async (req, res) => {
             else{
                 return res.json({ message: "false" });
             }
+            return res.json({ message: "true" });
         })
         .catch(function(error) {
             console.error("Error writing document: ", error);
