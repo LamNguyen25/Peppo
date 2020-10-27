@@ -5,4 +5,6 @@ Web application
 * Step:
 * 1. Clone the project
 * 2. Open client folder on VSCode
-* 3. Open Terminal, cd to client folder, then run npm start
+* 3. Open Terminal, cd to client folder
+* 4. Run npm i
+* 5. Run npm start
