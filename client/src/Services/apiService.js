@@ -1,9 +1,13 @@
 import http from "./httpService";
 import jwtDecode from "jwt-decode";
-
+const apiUrl = "http://localhost:3001";
 // Connect to the server in Firebase
-const apiGetAccessCode  = 'https://us-east1-peppo-4e1a1.cloudfunctions.net/app/login/createNewAccessCode';
-const apiValidateAccessCode = "https://us-east1-peppo-4e1a1.cloudfunctions.net/app/login/ValidateAccessCode";
+// const apiGetAccessCode  = 'https://us-east1-peppo-4e1a1.cloudfunctions.net/app/login/createNewAccessCode';
+// const apiValidateAccessCode = "https://us-east1-peppo-4e1a1.cloudfunctions.net/app/login/ValidateAccessCode";
+const apiGetAccessCode = apiUrl + '/login/createNewAccessCode';
+const apiValidateAccessCode = apiUrl + '/login/ValidateAccessCode';
+
+
 const tokenKey  = "token"; // key-value name
 
 // Get current user by decoding JWT in Local Storage
