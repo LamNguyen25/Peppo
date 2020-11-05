@@ -149,7 +149,7 @@ export default function Login() {
                         label="Phone Number"
                         value={phoneNumber.value}
                         onChange={handleChangePhoneNumber}
-                        helperText="E.g. 3109994567"
+                        helperText="E.g. 3109994567 (Please do not put +1)"
                     />
                 
                     {phoneNumber.error ? <Typography component="p" className={classes.error}>{phoneNumber.error}</Typography> : null}
