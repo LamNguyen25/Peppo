@@ -3,13 +3,17 @@ const express   = require('express');
 const router    = express.Router();
 const jwt = require('jsonwebtoken');
 // Get Twilio accountID, authToekn and phone number
-const config = require('./TwilioConfig.json');
+// const config = require('./TwilioConfig.json');
+
+const accountSid = "AC85b4ddf24c7d5f07acd61cdf875b60f1";
+const authToken = "8bd9623253d1682298b1dca9b92c5397";
+const client = require('twilio')(accountSid, authToken);
 
 // Send verification code using twilio
-const client = require('twilio')(
-    config.accountSid,
-    config.authToken
-  );
+// const client = require('twilio')(
+//     config.accountSid,
+//     config.authToken
+//   );
   
 // Generate a random 6-digit access code then save that access code to the provided phone number
 router.post('/createNewAccessCode', async (req, res) => {
@@ -27,9 +31,9 @@ router.post('/createNewAccessCode', async (req, res) => {
         console.log("Access Code was successfully saved in the database!");
         // Send SMS message
         client.messages.create({
-            from: config.twilioPhoneNumber,
-            to: phoneNumber,
-            body: randomAccessCode.toString()
+            body: randomAccessCode.toString(),
+            from: "+12406075054",
+            to: phoneNumber
           }).then((message) => console.log(message.sid))
           .catch((err) => {
             console.log(err)
