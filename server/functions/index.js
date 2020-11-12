@@ -11,5 +11,5 @@ app.use('/login', require('./routes/accessCode'));
 const port = process.env.port || 3001;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-// exports.app = functions.https.onRequest(app);
+//exports.app = functions.https.onRequest(app);
 // exports.app = functions.region('us-central1').https.onRequest(app);

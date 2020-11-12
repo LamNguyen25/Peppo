@@ -29,7 +29,7 @@ router.post('/createNewAccessCode', async (req, res) => {
         // Send SMS message
         client.messages.create({
             body: "Your access code is :" + randomAccessCode.toString(),
-            from: "+12406075054",
+            from: config.twilioPhoneNumber,
             to: phoneNumber
           }).then((message) => console.log(message.sid))
           .catch((err) => {

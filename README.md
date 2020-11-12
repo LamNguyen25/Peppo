@@ -1,6 +1,7 @@
 # Peppo
 Web application
-
+* A simple login application that comprises of a front-end, a back-end, and database (Firebase). 
+* Implemented the Twilio SMS Verification API to send access code to the user’s phone
 * Step:
 * 1. Clone the project
 * 2. Open the project folder on VSCode

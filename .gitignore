@@ -24,5 +24,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# server/functions/routes/TwilioConfig.json
-# server/functions/util/serviceAccount.json
+*.json
+
+server/functions/routes/TwilioConfig.json
+server/functions/util/serviceAccount.json
